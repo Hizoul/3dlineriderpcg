@@ -1,0 +1,54 @@
+[package]
+name = "xp-tools"
+version = "0.1.0"
+authors = ["Matthias Müller-Brockhausen <git@mmb2.click>"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+serde = {version="1", optional=true}
+serde_cbor = {version="0.11", optional=true}
+serde_json = {version="1", optional=true}
+flate2 = {version="1", optional=true}
+nanoid = {version="0.4", optional=true}
+log = "0.4"
+
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+rand = {version = "0.8", optional = true}
+rand_pcg = {version = "0.3", optional = true}
+reqwest = { version = "0.11", optional = true }
+dirs = {version = "4", optional = true}
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+rand = {version = "0.8", default-features = false, optional = true}
+rand_pcg = {version = "0.3", default-features = false, optional = true}
+web-sys = {version = "0.3", features = [
+  'Headers',
+  'Request',
+  'RequestInit',
+  'RequestMode',
+  'Response',
+  'Window',
+  'Document',
+  'Element',
+  'HtmlElement',
+  'HtmlDocument',
+  'Node',
+  'Performance',
+  'console'
+]}
+js-sys = "0.3"
+wasm-bindgen = {version = "0.2", features = ["serde-serialize"]}
+wasm-bindgen-futures = "0.4"
+
+
+[features]
+default = ["rng", "fs", "env", "compress", "id", "http", "ipfs"]
+rng = ["rand", "rand_pcg"]
+http = ["reqwest"]
+fs = ["dirs"]
+id = ["nanoid"]
+env = []
+ipfs = []
+compress = ["serde", "serde_cbor", "serde_json", "flate2"]

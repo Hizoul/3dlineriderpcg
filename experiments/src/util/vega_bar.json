@@ -1,0 +1,35 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {"url": "data/mountaincar_bar_training.json"},
+  "layer": [
+    {
+      "mark": "errorbar",
+      "encoding": {
+        "y": {
+          "field": "max",
+          "type": "quantitative",
+          "scale": {"zero": false},
+          "title": "Reward",
+          "aggregate": "average"
+        },
+        "y2": {"field": "min"},
+        "x": {"field": "name", "type": "ordinal"}
+      }
+    },
+    {
+      "mark": "point",
+      "encoding": {
+        "y": {
+          "aggregate": "average",
+          "field": "avg",
+          "type": "quantitative"
+        },
+
+        "x": {
+          "field": "name",
+          "type": "ordinal"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+[tasks.run]
+command = "cargo"
+args = [ "run" ]
+watch=true
+[tasks.test]
+command = "cargo"
+args = [ "test", "--", "--nocapture" ]
+env = { RUST_BACKTRACE = "1", INSTA_UPDATE = "always"}
+watch=true

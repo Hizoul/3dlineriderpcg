@@ -1,0 +1,22 @@
+pipeline {
+  agent {
+    dockerfile  {
+      filename 'Dockerfile'
+      label 'mmb2/rgym'
+      args '-v /tmp/cargo:/tmp/cargo -v /tmp/rtarget:/tmp/rtarget'
+    }
+  }
+  environment {
+    CARGO_HOME = '/tmp/cargo'
+    CARGO_TARGET_DIR = '/tmp/rtarget'
+  }
+  stages {
+    stage('Test') {
+      agent any
+      steps {
+        sh 'sh scripts/ci_test.sh'
+      }
+    }
+
+  }
+}

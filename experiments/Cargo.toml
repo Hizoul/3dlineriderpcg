@@ -1,0 +1,30 @@
+[package]
+name = "experiments-runner"
+version = "0.1.0"
+authors = ["Matthias Müller-Brockhausen <git@mmb2.click>"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+serde = "1"
+serde_json = "1"
+rand = {version = "0.8"}
+compressed-vec = { path = "../gym/compressed-vec" }
+rusty-gym = { path = "../gym/rusty-gym" }
+linerider = { path = "../envs/linerider", optional=true}
+xp-tools = { path = "../gym/xp-tools"}
+ndarray = {version="0.15"}
+plotters = { version = "0.3" }
+walkdir = {version="2"}
+mt19937 = { path = "../gym/mt19937"}
+
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+clap = {version = "4", features=["derive"]}
+rayon = {version = "1"}
+indicatif = {version = "0.17", optional=true}
+
+[features]
+default = ["lrpcg"]
+pytorch = ["rusty-gym/python"]
+lrpcg = ["linerider", "indicatif"]

@@ -1,0 +1,55 @@
+[package]
+name = "rusty-gym"
+version = "0.1.0"
+authors = ["Matthias Müller-Brockhausen <git@mmb2.click>"]
+edition = "2021"
+
+[lib]
+name = "rusty_gym"
+crate-type = ["rlib", "cdylib"]
+
+[dependencies]
+serde = { version = "1"}
+serde_json = { version = "1", optional = true}
+serde_cbor = {version="0.11", optional=true}
+flate2 = {version="1", optional=true}
+ndarray = {version="0.15", features = ["serde"]}
+nalgebra = {version="0.32", features = ["serde"], optional=true}
+compressed-vec = { path = "../compressed-vec", optional = true }
+xp-tools = { path = "../xp-tools", optional = true}
+plotters= { version = "0.3", optional = true }
+lyon_tessellation = { version = "1", optional = true }
+regex = { version = "1", optional = true }
+image = { version = "0.24", optional = true }
+futures = {version="0.3", optional = true}
+mt19937 = { path = "../mt19937", optional = true}
+rand_core = {version = "0.6", optional = true}
+rand_xoshiro = {version = "0.6", optional = true}
+sha2 = { version = "0.10", optional = true}
+async-recursion = {version="1", optional = true}
+rust_decimal = "1.12"
+[dev-dependencies]
+insta = "1"
+tokio = { version = "1", features = ["full"] }
+
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+rand = {version = "0.8", optional = true}
+rand_pcg = {version = "0.3", optional = true}
+walkdir = {version="2", optional=true}
+pyo3 = {version="0.20", optional = true}
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+rand = {version = "0.8", default-features = false}
+rand_pcg = {version = "0.3", default-features = false, optional = true}
+plotters-canvas= { version = "0.3", optional = true }
+
+[features]
+default = ["env-demo", "env-control", "vis", "eval", "vis-toimg", "replay", "python"]
+eval = ["vis", "xp-tools", "walkdir", "compressed-vec", "plotters", "plotters-canvas", "futures", "serde_json", "serde_cbor", "async-recursion", "flate2", "regex"]
+vis = ["lyon_tessellation", "nalgebra"]
+vis-toimg = ["image"]
+python = ["pyo3", "rand", "rand_pcg"]
+env-demo = []
+env-control = ["xp-tools", "rand", "mt19937", "rand_core", "rand_pcg", "rand_xoshiro", "sha2"]
+reset = []
+replay = ["compressed-vec"]

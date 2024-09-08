@@ -1,0 +1,7 @@
+---
+source: rusty-gym/src/env/python/python_to_rust.rs
+expression: python_env.action_space()
+---
+Discrete(
+    2,
+)

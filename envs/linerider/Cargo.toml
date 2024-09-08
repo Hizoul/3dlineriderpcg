@@ -1,0 +1,51 @@
+[package]
+name = "linerider"
+version = "0.1.0"
+edition = "2021"
+default-run = "ldv"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+ndarray = "0.15"
+nalgebra = "0.32"
+lyon_tessellation = { version = "1", optional = true }
+rusty-gym = { path = "../../gym/rusty-gym", optional = true }
+xp-tools = { path = "../../gym/xp-tools", optional = true }
+
+bevy = {version = "0.12", features = ["jpeg"]}
+bevy_rapier3d = { version = "0.23.0", features = ["debug-render", "serde-serialize", "enhanced-determinism"] }
+bevy_egui = "0.24"
+eframe = "0.24"
+epaint = "0.24"
+bevy_flycam = "0.12"
+rand = "0.8"
+serde = { version = "1"}
+serde_json = { version = "1" }
+plotters = "0.3"
+plotters-backend = "0.3"
+pyo3 = { version="0.20", optional = true }
+
+[dev-dependencies]
+insta = "1"
+criterion = "0.5"
+
+[features]
+default = ["gym", "libbuild"]
+gym = ["rusty-gym", "lyon_tessellation", "xp-tools"]
+libbuild = ["pyo3"]
+
+[profile.dev.package.bevy_rapier3d]
+opt-level = 3
+
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+tokio = { version = "1", features = ["full"] }
+
+[lib]
+name="linerider"
+crate-type = ["rlib", "cdylib"]
+
+
+[[bin]]         
+name = "ldv"    
+required-features = ["bevy/dynamic_linking"] 

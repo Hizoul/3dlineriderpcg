@@ -1,0 +1,25 @@
+[tasks.run]
+command = "cargo"
+args = [ "run", "--features=bevy/dynamic_linking", "${@}", ]
+watch = true
+
+[tasks.release]
+command = "cargo"
+args = [ "run", "--release" ]
+watch = true
+
+[tasks.bench]
+command = "cargo"
+args = [ "bench" ]
+watch = true
+
+[tasks.build]
+command = "cargo"
+args = [ "build" ]
+watch = true
+
+[tasks.test]
+command = "cargo"
+args = [ "test", "", "--", "--nocapture"]
+env = { RUST_BACKTRACE = "1", INSTA_UPDATE = "always" }
+watch = true

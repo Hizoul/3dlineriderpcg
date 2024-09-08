@@ -1,0 +1,222 @@
+---
+source: src/env/mod.rs
+expression: snaps
+---
+[
+    Transform {
+        translation: Vec3(
+            2.6028848,
+            -2.428993,
+            0.0,
+        ),
+        rotation: Quat(
+            0.0,
+            0.0,
+            -0.84966683,
+            0.5273198,
+        ),
+        scale: Vec3(
+            1.0,
+            1.0,
+            1.0,
+        ),
+    },
+    Transform {
+        translation: Vec3(
+            8.093617,
+            -7.916925,
+            0.0,
+        ),
+        rotation: Quat(
+            0.0,
+            0.0,
+            0.8927494,
+            -0.45055336,
+        ),
+        scale: Vec3(
+            1.0,
+            1.0,
+            1.0,
+        ),
+    },
+    Transform {
+        translation: Vec3(
+            16.685936,
+            -16.763573,
+            0.0,
+        ),
+        rotation: Quat(
+            0.0,
+            -0.0,
+            0.97593665,
+            0.21805412,
+        ),
+        scale: Vec3(
+            1.0,
+            1.0,
+            1.0,
+        ),
+    },
+    Transform {
+        translation: Vec3(
+            25.955519,
+            -34.622936,
+            0.0,
+        ),
+        rotation: Quat(
+            0.0,
+            0.0,
+            -0.48937848,
+            -0.87207156,
+        ),
+        scale: Vec3(
+            1.0,
+            1.0,
+            1.0,
+        ),
+    },
+    Transform {
+        translation: Vec3(
+            35.225067,
+            -61.52321,
+            0.0,
+        ),
+        rotation: Quat(
+            0.0,
+            0.0,
+            -0.32236093,
+            0.9466169,
+        ),
+        scale: Vec3(
+            1.0,
+            1.0,
+            1.0,
+        ),
+    },
+    Transform {
+        translation: Vec3(
+            44.4946,
+            -97.46437,
+            0.0,
+        ),
+        rotation: Quat(
+            0.0,
+            0.0,
+            0.91989857,
+            -0.39215636,
+        ),
+        scale: Vec3(
+            1.0,
+            1.0,
+            1.0,
+        ),
+    },
+    Transform {
+        translation: Vec3(
+            53.76413,
+            -142.44641,
+            0.0,
+        ),
+        rotation: Quat(
+            0.0,
+            0.0,
+            -0.90618426,
+            -0.4228831,
+        ),
+        scale: Vec3(
+            1.0,
+            1.0,
+            1.0,
+        ),
+    },
+    Transform {
+        translation: Vec3(
+            63.03366,
+            -196.4693,
+            0.0,
+        ),
+        rotation: Quat(
+            0.0,
+            -0.0,
+            0.2903309,
+            0.9569263,
+        ),
+        scale: Vec3(
+            1.0,
+            1.0,
+            1.0,
+        ),
+    },
+    Transform {
+        translation: Vec3(
+            72.30319,
+            -259.53305,
+            0.0,
+        ),
+        rotation: Quat(
+            0.0,
+            0.0,
+            0.51844084,
+            -0.85511345,
+        ),
+        scale: Vec3(
+            1.0,
+            1.0,
+            1.0,
+        ),
+    },
+    Transform {
+        translation: Vec3(
+            81.57272,
+            -331.63797,
+            0.0,
+        ),
+        rotation: Quat(
+            0.0,
+            0.0,
+            -0.98272026,
+            0.18509687,
+        ),
+        scale: Vec3(
+            1.0,
+            1.0,
+            1.0,
+        ),
+    },
+    Transform {
+        translation: Vec3(
+            81.57272,
+            -331.63797,
+            0.0,
+        ),
+        rotation: Quat(
+            0.0,
+            0.0,
+            -0.98272026,
+            0.18509687,
+        ),
+        scale: Vec3(
+            1.0,
+            1.0,
+            1.0,
+        ),
+    },
+    Transform {
+        translation: Vec3(
+            8.695963,
+            -8.269025,
+            0.0,
+        ),
+        rotation: Quat(
+            0.0,
+            0.0,
+            0.7204633,
+            0.69349307,
+        ),
+        scale: Vec3(
+            1.0,
+            1.0,
+            1.0,
+        ),
+    },
+]

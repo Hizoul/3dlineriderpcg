@@ -1,0 +1,32 @@
+{
+  "image": "mmb2/ecsgym",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/experiments,type=bind,consistency=cached",
+  "workspaceFolder": "/workspaces/experiments",
+  "mounts": [
+    "source=${localWorkspaceFolder}/../gym,target=/workspaces/gym,type=bind",
+    "source=${localWorkspaceFolder}/../envs/linerider,target=/workspaces/envs/linerider,type=bind",
+    "source=${localEnv:XDG_RUNTIME_DIR}/${localEnv:WAYLAND_DISPLAY},target=/home/podman/${localEnv:WAYLAND_DISPLAY},type=bind",
+    "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind",
+    "source=/dev/dri/card0,target=/dev/dri/card0,type=bind",
+  ],
+  "containerEnv": {
+    "CARGO_TARGET_DIR": "/0rusttarget",
+    "CARGO_HOME": "/0cargohome",
+    "DISPLAY": "${localEnv:DISPLAY}",
+    "WAYLAND_DISPLAY": "${localEnv:WAYLAND_DISPLAY}",
+    "XDG_SESSION_TYPE": "${localEnv:XDG_SESSION_TYPE}",
+    "XDG_RUNTIME_DIR": "/home/podman"
+
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "bungcip.better-toml",
+        "serayuzgur.crates",
+        "rust-lang.rust-analyzer",
+        "mitsuhiko.insta"
+      ]
+    }
+  },
+  "runArgs": ["--network=host", "--ipc=host"]
+}

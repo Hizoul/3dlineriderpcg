@@ -1,0 +1,33 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {"url": "data/mountaincar_smoothed_eval.json"},
+  "encoding": {
+    "x": {
+      "field": "episode",
+      "type": "quantitative"
+    }
+  },
+  "layer": [
+    {
+      "mark": {"type": "errorband", "extent": "ci"},
+      "encoding": {
+        "y": {
+          "field": "reward",
+          "type": "quantitative",
+          "title": "Reward"
+        },
+        "color": {"field": "name", "type": "nominal"}
+      }
+    },
+    {
+      "mark": "line",
+      "encoding": {
+        "y": {
+          "aggregate": "mean",
+          "field": "reward"
+        },
+        "color": {"field": "name", "type": "nominal", "scale": {"range": ["blue", "green", "red", "black", "purple", "orange"]}}
+      }
+    }
+  ]
+}

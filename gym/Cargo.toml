@@ -1,0 +1,7 @@
+[workspace]
+
+members = [
+  "rusty-gym",
+  "compressed-vec",
+  "xp-tools"
+]

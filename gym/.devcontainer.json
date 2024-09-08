@@ -1,0 +1,8 @@
+{
+  "image": "mmb2/ecsgym",
+  "containerEnv": {
+    "CARGO_TARGET_DIR": "/0rusttarget",
+    "CARGO_HOME": "/0cargohome"
+  },
+  "runArgs": ["--network=host", "--ipc=host"]
+}

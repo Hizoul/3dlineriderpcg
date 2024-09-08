@@ -1,0 +1,15 @@
+[tasks.run]
+command = "cargo"
+args = [ "run" , "--release"]
+watch = true
+
+[tasks.build]
+command = "cargo"
+args = [ "build" ]
+watch = true
+
+[tasks.test]
+command = "cargo"
+args = [ "test", "--", "python_to_rust", "--nocapture", "--test-threads=1" ]
+env = { RUST_BACKTRACE = "1", INSTA_UPDATE = "always" }
+watch = true

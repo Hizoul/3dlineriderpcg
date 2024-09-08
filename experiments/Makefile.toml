@@ -1,0 +1,68 @@
+[tasks.run]
+command = "cargo"
+args = [ "run", "--release", "--", "-e=linerider", "--results=${@}" ]
+watch = false
+env = { RUST_BACKTRACE = "1" }
+
+[tasks.enrich]
+command = "cargo"
+args = [ "run", "--release", "--", "-e=linerider_enrich", "--results=${@}" ]
+watch = false
+env = { RUST_BACKTRACE = "1" }
+
+[tasks.extract]
+command = "cargo"
+args = [ "run", "--release", "--", "-e=linerider_extract", "--results=${@}" ]
+watch = false
+env = { RUST_BACKTRACE = "1" }
+
+[tasks.heulog]
+command = "cargo"
+args = [ "run", "--release", "--", "-e=linerider_heu_log" ]
+watch = false
+env = { RUST_BACKTRACE = "1" }
+
+[tasks.booster]
+command = "cargo"
+args = [ "run", "--release", "--", "-e=linerider_booster_optim" ]
+watch = false
+env = { RUST_BACKTRACE = "1" }
+
+[tasks.collect]
+command = "cargo"
+args = [ "run", "--release", "--", "-e=collect", "--results=${@}" ]
+env = { RUST_BACKTRACE = "1" }
+
+[tasks.analysis]
+command = "cargo"
+args = [ "run", "--release", "--", "-e=post_analysis", "--results=${@}"]
+watch = false
+env = { RUST_BACKTRACE = "1" }
+
+[tasks.extract2d]
+command = "cargo"
+args = [ "run", "--release", "--", "-e=extract2d", "--results=${@}"]
+watch = false
+env = { RUST_BACKTRACE = "1" }
+
+
+[tasks.test]
+command = "cargo"
+args = [ "test", "--", "--nocapture" ]
+watch = true
+
+
+[tasks.py]
+command = "python"
+args = [ "src/experiments/cartpole_and_q/pypole.py" ]
+watch = true
+
+[tasks.summary]
+script_runner = "@shell"
+script = [
+'''
+cargo run --release -- -m=$PWD
+cargo run --relase -- -s=$PWD/merge.csv
+'''
+]
+watch = true

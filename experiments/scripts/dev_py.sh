@@ -1,0 +1,2 @@
+cd ../linerider
+maturin develop

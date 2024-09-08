@@ -1,0 +1,18 @@
+---
+source: src/env/mod.rs
+expression: result_tuple
+---
+LineRiderSimulationResult {
+    steps_taken: 94,
+    goal_reached: true,
+    checkpoint_reached: true,
+    velocity_at_end: 7.611123,
+    overall_velocity: 568.54425,
+    overall_rotation: 15.550562,
+    overall_height_gain: 5.7314186,
+    closest_to_goal: 0.0,
+    ended_because_of_no_movement: false,
+    time_rider_touched_track: 1400,
+    time_rider_airborne: 2400,
+    total_time: 3800,
+}
